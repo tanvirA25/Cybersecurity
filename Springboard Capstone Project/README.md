@@ -1,15 +1,70 @@
+# 🔐 Artemis Penetration Testing Report
 
-# Vulnerability Scanning Lab (Kali Linux, OpenVAS, Nmap)
+This repository contains the detailed technical report of a comprehensive penetration test conducted for **Artemis**, a natural gas company serving over **1.7 million customers**. The goal was to assess the network's security posture, identify vulnerabilities, and provide actionable remediation strategies.
 
+---
 
-As part of a hands-on penetration testing lab, I conducted a full network vulnerability assessment using Kali Linux tools such as Nmap, Zenmap, and OpenVAS. The first phase involved reconnaissance and host discovery using Nmap commands like nmap -sn 192.168.1.0/24 to identify live hosts on the network, followed by more detailed scans using nmap -sV and nmap -A to enumerate open ports, services, and operating systems. Zenmap was also utilized to visualize scan results and manage scanning profiles via its GUI. In the second phase, I used OpenVAS (Open Vulnerability Assessment System) to perform in-depth vulnerability scans by first initializing the scanner with sudo gvm-setup and starting the web interface at https://127.0.0.1:9392. After updating the Greenbone Community Feed to include over 50,000 known vulnerabilities, I configured and launched scan tasks on discovered targets. The resulting reports provided detailed insights into detected vulnerabilities, including CVE identifiers, severity ratings, and remediation recommendations. Through this lab, I gained practical experience with the first two phases of the penetration testing lifecycle—reconnaissance and scanning—and developed skills in interpreting scan outputs, assessing network security posture, and identifying actionable steps for remediation.
+## 📌 Project Overview
 
-<img width="544" height="373" alt="image" src="https://github.com/user-attachments/assets/8a6c6a57-15d7-4aca-a6c4-442118be5e10" />
+- **Client**: Artemis (Natural Gas Provider)
+- **Scope**: Internal & external network, web apps, and cloud infrastructure
+- **Testing Type**: Grey-box
+- **Standards Used**: OSSTMM, OWASP Testing Guide, NIST SP 800-115
 
+---
 
+## 🧭 Methodology
 
-<img width="560" height="314" alt="image" src="https://github.com/user-attachments/assets/9cdc6c0d-5651-4d24-8316-eeeaf04445ae" />
+The penetration test followed a four-phase methodology:
 
+| Phase | Description |
+|-------|-------------|
+| **1. Reconnaissance** | Collected open-source intelligence (OSINT) from social media, DNS records, leaked credentials, and network traffic. |
+| **2. Target Scanning** | Identified live hosts, open ports, and services using Nmap, Zenmap, Armitage, and Telnet. |
+| **3. Vulnerability Scanning** | Used OpenVAS, Burp Suite, Wapiti, and Metasploit to identify exploitable weaknesses and CVEs. |
+| **4. Threat Assessment** | Assessed the risks using OWASP and CVSS scoring; mapped vulnerabilities to real-world attack vectors. |
 
+---
 
+## 🔎 Key Findings
 
+- ✅ **5 Critical** and **4 High-Risk** vulnerabilities identified
+- 🛠️ Major issues included:
+  - Unpatched **RDP** services
+  - **SQL Injection** flaws in web apps
+  - **Default credentials** on Cisco devices
+  - **Apache CVE-2019-0211** root privilege risk
+  - **AWS misconfigurations** exposing sensitive data
+  - **Microsoft Exchange** RCE vulnerability
+
+---
+
+## ✅ Recommendations
+
+- Patch and upgrade vulnerable services
+- Apply **network segmentation** to limit lateral movement
+- Restrict **public cloud access** and enforce **IAM policies**
+- Enable **multi-factor authentication (MFA)**
+- Separate critical systems (e.g., Exchange) from external exposure
+- Train developers in **secure coding practices**
+- Implement regular **vulnerability assessments** and **logging/monitoring**
+
+---
+
+## 📄 Report Contents
+
+- 📘 Scope of Work  
+- 🎯 Project Objectives  
+- 🧠 Assumptions  
+- 📅 Timeline & Phase Breakdown  
+- 📊 Summary of Findings  
+- 🛡️ Detailed Remediation Plan  
+
+---
+
+## 📁 Files
+
+- `Artemis_PenTest_Report.pdf` – Full report  
+- `Penetration_Methodology.png` – Diagram of 4-phase testing strategy  
+
+---
